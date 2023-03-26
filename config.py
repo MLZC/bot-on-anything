@@ -15,8 +15,7 @@ def load_config():
     config_str = read_file(config_path)
     # 将json字符串反序列化为dict类型
     config = json.loads(config_str)
-    print("载入环节" )
-    print(config)
+    print("Load config success")
     return config
 
 def get_root():
@@ -53,3 +52,12 @@ def channel_conf_val(channel_type, key, default=None):
         # common default config
         return config.get('channel').get(key, default)
     return val
+
+
+def common_conf():
+    return config.get('common')
+
+
+def common_conf_val(key, default=None):
+    return config.get('common').get(key, default)
+
